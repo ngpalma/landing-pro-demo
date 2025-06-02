@@ -8,7 +8,8 @@ function App() {
   const handleSubmit = useCallback(async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:5000/contact', formData);
+      // const response = await axios.post('http://localhost:5000/contact', formData);
+      const response = await axios.post('https://landing-pro-backend.onrender.com/contact', formData);
       alert(response.data.message);
       setFormData({ name: '', email: '', message: '' });
     } catch (error) {
