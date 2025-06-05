@@ -11,11 +11,11 @@ A single-page portfolio site for professionals, built with React and Tailwind CS
 - Backend: Node.js, Express
 
 ## Demo
-[Live Demo](https://landing-pro-demo.vercel.app) *(Will update after deployment)*
+[Live Demo](https://landing-pro-demo.vercel.app/)
 
 ## Setup
 ### Frontend
-1. Clone: `git clone https://github.com/tu-usuario/landing-pro-demo`
+1. Clone: `git clone https://github.com/ngpalma/landing-pro-demo`
 2. Install: `cd landing-pro-demo && npm install`
 3. Run: `npm run dev`
 
