@@ -11,7 +11,7 @@ app.use(express.json());
 app.post('/contact', (req, res) => {
   const { name, email, message } = req.body;
   console.log('Form submission:', { name, email, message });
-  res.status(200).json({ message: 'Form submitted successfully' });
+  res.status(200).json({ message: 'Mensaje enviado exitosamente' });
 });
 
 // Start server

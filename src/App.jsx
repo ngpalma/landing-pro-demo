@@ -25,7 +25,7 @@ function App() {
           code: error.code,
           response: error.response ? error.response.data : null,
         });
-        alert(`Error submitting form: ${error.message}`);
+        alert(`Error enviando mensaje: ${error.message}`);
       }
     },
     [formData]
@@ -37,22 +37,25 @@ function App() {
 
   const services = [
     {
-      title: 'Career Strategy Coaching',
+      title: "Coaching de estrategia profesional",
       description:
-        'Develop a personalized roadmap to achieve your professional goals. Through one-on-one sessions, we’ll identify your strengths, refine your career vision, and create actionable steps to secure promotions, land dream jobs, or transition to new industries. Includes resume optimization and LinkedIn profile enhancement.',
-      image: 'https://plus.unsplash.com/premium_photo-1661771773771-a093c948ba92?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Q2FyZWVyfGVufDB8fDB8fHww',
+        "Desarrolla una hoja de ruta personalizada para alcanzar tus objetivos profesionales. A través de sesiones individuales, identificaremos tus fortalezas, definiremos tu visión de carrera y crearemos pasos prácticos para asegurar ascensos, conseguir el trabajo de tus sueños o adaptarte a nuevos sectores. Incluye optimización de currículum y mejora de tu perfil de LinkedIn.",
+      image:
+        "https://plus.unsplash.com/premium_photo-1661771773771-a093c948ba92?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Q2FyZWVyfGVufDB8fDB8fHww",
     },
     {
-      title: 'Interview Preparation',
+      title: "Preparación de la entrevista",
       description:
-        'Master the art of interviewing with tailored mock interviews and feedback. Learn to articulate your value, handle tough questions, and project confidence. We’ll cover behavioral, technical, and case-based interviews, ensuring you’re ready for any scenario, from corporate roles to startup pitches.',
-      image: 'https://plus.unsplash.com/premium_photo-1676666377229-12a9ad6b186a?q=80&w=1471&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+        "Domina el arte de la entrevista con simulacros de entrevista personalizados y retroalimentación. Aprende a expresar tu valor, a responder preguntas difíciles y a proyectar confianza. Abarcaremos entrevistas conductuales, técnicas y basadas en casos prácticos, asegurándonos de que estés preparado para cualquier escenario, desde puestos corporativos hasta presentaciones de startups.",
+      image:
+        "https://plus.unsplash.com/premium_photo-1676666377229-12a9ad6b186a?q=80&w=1471&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     },
     {
-      title: 'Leadership Development',
+      title: "Desarrollo de liderazgo",
       description:
-        'Elevate your leadership skills to inspire teams and drive results. This program focuses on emotional intelligence, effective communication, and strategic decision-making. Ideal for new managers or seasoned executives aiming to enhance their influence and lead with impact in today’s dynamic workplaces.',
-      image: 'https://plus.unsplash.com/premium_photo-1661605653366-b1a6a6831cd4?q=80&w=1469&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+        "Mejora tus habilidades de liderazgo para inspirar a tus equipos e impulsar resultados. Este programa se centra en la inteligencia emocional, la comunicación efectiva y la toma de decisiones estratégicas. Ideal para nuevos gerentes o ejecutivos experimentados que buscan aumentar su influencia y liderar con impacto en los dinámicos entornos laborales actuales.",
+      image:
+        "https://plus.unsplash.com/premium_photo-1661605653366-b1a6a6831cd4?q=80&w=1469&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     },
   ];
 
@@ -62,106 +65,122 @@ function App() {
         <title>Landing Pro Demo</title>
         <meta
           name="description"
-          content="Professional portfolio demo by [Your Name]"
+          content="Demostración de portafolio profesional por Nicolás Palma"
         />
       </Helmet>
-      <section id="hero" className="bg-blue-600 text-white p-10 flex flex-col md:flex-row items-center">
+      <section
+        id="hero"
+        className="bg-blue-600 text-white p-10 flex flex-col md:flex-row items-center"
+      >
         <div className="md:w-1/2 text-center md:text-left">
-          <h1 className="text-4xl font-bold">John Doe - Career Coach</h1>
+          <h1 className="text-4xl font-bold">Carlos López - Career Coach</h1>
           <p className="mt-4 max-w-md">
-            Transform your career with personalized coaching.
+            Transforma tu carrera con coaching personalizado.
           </p>
           <button
             onClick={scrollToServices}
             className="mt-4 bg-white text-blue-600 px-6 py-2 rounded hover:bg-gray-300"
           >
-            Learn More
+            Más información
           </button>
         </div>
         <div className="md:w-1/2 mt-6 md:mt-0">
           <img
             src="https://images.unsplash.com/photo-1537511446984-935f663eb1f4?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzN8fHByb2Zlc3Npb25hbHxlbnwwfHwwfHx8MA%3D%3D"
-            alt="John Doe, Career Coach"
+            alt="Juan Pérez, Career Coach"
             className="rounded-lg shadow-lg mx-auto max-w-full h-auto"
           />
         </div>
       </section>
       <section id="about" className="p-10 bg-gray-100">
-      <h2 className="text-3xl font-bold text-center">About John Doe</h2>
-      <div className="max-w-4xl mx-auto mt-6 text-center">
-        <p className="mb-4">
-          John Doe is a seasoned career coach with over 15 years of experience in human resources
-          and professional development. Holding a Master’s in Organizational Psychology from the
-          University of Buenos Aires, John has empowered hundreds of professionals across
-          Argentina and Latin America to achieve their career aspirations.
-        </p>
-        <p className="mb-4">
-          Before founding his coaching practice, John held senior HR roles at multinational
-          corporations, where he designed leadership programs and guided employees through career
-          transitions. His approach combines evidence-based strategies, personalized mentorship,
-          and a deep understanding of today’s job market, helping clients navigate promotions,
-          career changes, or entrepreneurial ventures.
-        </p>
-        <p className="mb-4">
-          As a certified ICF (International Coaching Federation) coach, John is committed to
-          fostering confidence and clarity in his clients. He’s a frequent speaker at career
-          workshops in Buenos Aires and has contributed articles to La Nación on workplace trends.
-          Outside of coaching, John enjoys mentoring young professionals and exploring Patagonia’s
-          hiking trails.
-        </p>
-        <p>
-          <strong>Mission:</strong> To unlock every client’s potential through tailored guidance,
-          actionable strategies, and unwavering support.
-        </p>
-      </div>
-    </section>
+        <h2 className="text-3xl font-bold text-center">Sobre Carlos López</h2>
+        <div className="max-w-4xl mx-auto mt-6 text-center">
+          <p className="mb-4">
+            Carlos López es un coach de carrera experimentado con más de 15 años de
+            experiencia en recursos humanos y desarrollo profesional. Con una
+            Maestría en Psicología Organizacional de la Universidad de Buenos
+            Aires, Carlos ha ayudado a cientos de profesionales en Argentina y
+            Latinoamérica a alcanzar sus aspiraciones profesionales.
+          </p>
+          <p className="mb-4">
+            Antes de fundar su consultora de coaching, Carlos ocupó altos cargos
+            de RR. HH. en corporaciones multinacionales, donde diseñó programas
+            de liderazgo y guió a empleados en sus transiciones profesionales.
+            Su enfoque combina estrategias basadas en la evidencia, mentoría
+            personalizada y un profundo conocimiento del mercado laboral actual,
+            ayudando a los clientes a afrontar ascensos, cambios de carrera o
+            emprendimientos.
+          </p>
+          <p className="mb-4">
+            Como coach certificado por la ICF (Federación Internacional de
+            Coaching), Carlos se compromete a fomentar la confianza y la claridad
+            en sus clientes. Participa frecuentemente como orador en talleres
+            de desarrollo profesional en Buenos Aires y ha publicado artículos
+            en La Nación sobre tendencias laborales. Además de su faceta como
+            coach, Carlos disfruta asesorando a jóvenes profesionales y explorando
+            las rutas de senderismo de la Patagonia.
+          </p>
+          <p>
+            <strong>Misión:</strong> Liberar el potencial de cada cliente
+            mediante asesoramiento personalizado, estrategias prácticas y un
+            apoyo incondicional.
+          </p>
+        </div>
+      </section>
       <section id="services" className="p-10 bg-gray-300">
-      <h2 className="text-3xl font-bold text-center">Services</h2>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6 max-w-6xl mx-auto">
-        {services.map((service, index) => (
-          <div key={index} className="bg-gray-100 p-6 rounded-lg shadow-lg text-center">
-            <img
-              src={service.image}
-              alt={service.title}
-              className="h-40 w-full object-cover rounded mb-4"
-            />
-            <h3 className="text-xl font-bold">{service.title}</h3>
-            <p className="mt-2">{service.description}</p>
-          </div>
-        ))}
-      </div>
-    </section>
+        <h2 className="text-3xl font-bold text-center">Servicios</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6 max-w-6xl mx-auto">
+          {services.map((service, index) => (
+            <div
+              key={index}
+              className="bg-gray-100 p-6 rounded-lg shadow-lg text-center"
+            >
+              <img
+                src={service.image}
+                alt={service.title}
+                className="h-40 w-full object-cover rounded mb-4"
+              />
+              <h3 className="text-xl font-bold">{service.title}</h3>
+              <p className="mt-2">{service.description}</p>
+            </div>
+          ))}
+        </div>
+      </section>
       <section id="contact" className="p-10 bg-gray-100">
-      <h2 className="text-3xl font-bold text-center">Contact Me</h2>
-      <form onSubmit={handleSubmit} className="max-w-md mx-auto mt-6">
-        <input
-          type="text"
-          placeholder="Name"
-          className="w-full p-3 mb-4 border rounded"
-          value={formData.name}
-          onChange={e => setFormData({ ...formData, name: e.target.value })}
-        />
-        <input
-          type="email"
-          placeholder="Email"
-          className="w-full p-3 mb-4 border rounded"
-          value={formData.email}
-          onChange={e => setFormData({ ...formData, email: e.target.value })}
-        />
-        <textarea
-          placeholder="Message"
-          className="w-full p-3 mb-4 border rounded"
-          value={formData.message}
-          onChange={e => setFormData({ ...formData, message: e.target.value })}
-        ></textarea>
-        <button
-          type="submit"
-          className="bg-blue-600 text-white px-6 py-2 rounded w-full"
-        >
-          Send Message
-        </button>
-      </form>
-    </section>
+        <h2 className="text-3xl font-bold text-center">Contáctame</h2>
+        <form onSubmit={handleSubmit} className="max-w-md mx-auto mt-6">
+          <input
+            type="text"
+            placeholder="Nombre"
+            className="w-full p-3 mb-4 border rounded"
+            value={formData.name}
+            onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+          />
+          <input
+            type="email"
+            placeholder="Email"
+            className="w-full p-3 mb-4 border rounded"
+            value={formData.email}
+            onChange={(e) =>
+              setFormData({ ...formData, email: e.target.value })
+            }
+          />
+          <textarea
+            placeholder="Mensaje"
+            className="w-full p-3 mb-4 border rounded"
+            value={formData.message}
+            onChange={(e) =>
+              setFormData({ ...formData, message: e.target.value })
+            }
+          ></textarea>
+          <button
+            type="submit"
+            className="bg-blue-600 text-white px-6 py-2 rounded w-full"
+          >
+            Enviar Mensaje
+          </button>
+        </form>
+      </section>
     </div>
   );
 }
