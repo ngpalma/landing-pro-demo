@@ -181,6 +181,19 @@ function App() {
           </button>
         </form>
       </section>
+      <footer className="bg-blue-700 text-white p-4 text-center">
+      <p className="text-sm">
+        &copy; 2025 Carlos López Coaching. Desarrollado por {' '}
+        <a
+          href="https://ngpalma.github.io/portfolio/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="underline hover:text-gray-200"
+        >
+          Nicolás Palma
+        </a>
+      </p>
+    </footer>
     </div>
   );
 }
