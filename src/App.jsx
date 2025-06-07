@@ -30,7 +30,7 @@ function App() {
     },
     [formData]
   );
-  
+
   const scrollToSection = (id) => {
     document.getElementById(id).scrollIntoView({ behavior: "smooth" });
   };
@@ -68,7 +68,7 @@ function App() {
           content="Demostración de portafolio profesional por Nicolás Palma"
         />
       </Helmet>
-      <nav className="bg-blue-800 text-white p-4 sticky top-0">
+      <nav className="bg-blue-500 text-white p-4 sticky top-0">
         <div className="container mx-auto flex justify-between items-center">
           <button
             onClick={() => scrollToSection("hero")}
@@ -100,7 +100,7 @@ function App() {
       </nav>
       <section
         id="hero"
-        className="bg-blue-600 text-white p-10 flex flex-col md:flex-row items-center"
+        className="bg-blue-700 text-white p-10 flex flex-col md:flex-row items-center"
       >
         <div className="md:w-1/2 text-center md:text-left">
           <h1 className="text-4xl font-bold">Carlos López - Career Coach</h1>
@@ -157,8 +157,8 @@ function App() {
           </p>
         </div>
       </section>
-      <section id="services" className="p-10 bg-gray-300">
-        <h2 className="text-3xl font-bold text-center">Servicios</h2>
+      <section id="services" className="p-10 bg-blue-700">
+        <h2 className="text-3xl font-bold text-center text-white">Servicios</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6 max-w-6xl mx-auto">
           {services.map((service, index) => (
             <div
@@ -205,15 +205,16 @@ function App() {
           ></textarea>
           <button
             type="submit"
-            className="bg-blue-600 text-white px-6 py-2 rounded w-full"
+            className="bg-blue-800 text-white px-6 py-2 rounded w-full hover:bg-blue-500 hover:text-black transition duration-300"
           >
             Enviar Mensaje
           </button>
         </form>
       </section>
-      <footer className="bg-blue-700 text-white p-4 text-center">
+      <footer className="bg-blue-500 text-white p-4 text-center">
         <p className="text-sm">
-          &copy; 2025 Carlos López Coaching. Desarrollado por{" "}
+          &copy; {new Date().getFullYear()} Carlos López Coaching. Desarrollado
+          por{" "}
           <a
             href="https://ngpalma.github.io/portfolio/"
             target="_blank"
