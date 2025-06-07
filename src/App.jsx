@@ -30,9 +30,9 @@ function App() {
     },
     [formData]
   );
-
-  const scrollToServices = () => {
-    document.getElementById("services").scrollIntoView({ behavior: "smooth" });
+  
+  const scrollToSection = (id) => {
+    document.getElementById(id).scrollIntoView({ behavior: "smooth" });
   };
 
   const services = [
@@ -68,6 +68,36 @@ function App() {
           content="Demostración de portafolio profesional por Nicolás Palma"
         />
       </Helmet>
+      <nav className="bg-blue-800 text-white p-4 sticky top-0">
+        <div className="container mx-auto flex justify-between items-center">
+          <button
+            onClick={() => scrollToSection("hero")}
+            className="hover:underline text-xl font-bold"
+          >
+            Carlos López Coaching
+          </button>
+          <div className="space-x-4">
+            <button
+              onClick={() => scrollToSection("about")}
+              className="hover:underline"
+            >
+              Acerca de
+            </button>
+            <button
+              onClick={() => scrollToSection("services")}
+              className="hover:underline"
+            >
+              Servicios
+            </button>
+            <button
+              onClick={() => scrollToSection("contact")}
+              className="hover:underline"
+            >
+              Contacto
+            </button>
+          </div>
+        </div>
+      </nav>
       <section
         id="hero"
         className="bg-blue-600 text-white p-10 flex flex-col md:flex-row items-center"
@@ -78,7 +108,7 @@ function App() {
             Transforma tu carrera con coaching personalizado.
           </p>
           <button
-            onClick={scrollToServices}
+            onClick={() => scrollToSection("services")}
             className="mt-4 bg-white text-blue-600 px-6 py-2 rounded hover:bg-gray-300"
           >
             Más información
@@ -96,8 +126,8 @@ function App() {
         <h2 className="text-3xl font-bold text-center">Sobre Carlos López</h2>
         <div className="max-w-4xl mx-auto mt-6 text-center">
           <p className="mb-4">
-            Carlos López es un coach de carrera experimentado con más de 15 años de
-            experiencia en recursos humanos y desarrollo profesional. Con una
+            Carlos López es un coach de carrera experimentado con más de 15 años
+            de experiencia en recursos humanos y desarrollo profesional. Con una
             Maestría en Psicología Organizacional de la Universidad de Buenos
             Aires, Carlos ha ayudado a cientos de profesionales en Argentina y
             Latinoamérica a alcanzar sus aspiraciones profesionales.
@@ -113,12 +143,12 @@ function App() {
           </p>
           <p className="mb-4">
             Como coach certificado por la ICF (Federación Internacional de
-            Coaching), Carlos se compromete a fomentar la confianza y la claridad
-            en sus clientes. Participa frecuentemente como orador en talleres
-            de desarrollo profesional en Buenos Aires y ha publicado artículos
-            en La Nación sobre tendencias laborales. Además de su faceta como
-            coach, Carlos disfruta asesorando a jóvenes profesionales y explorando
-            las rutas de senderismo de la Patagonia.
+            Coaching), Carlos se compromete a fomentar la confianza y la
+            claridad en sus clientes. Participa frecuentemente como orador en
+            talleres de desarrollo profesional en Buenos Aires y ha publicado
+            artículos en La Nación sobre tendencias laborales. Además de su
+            faceta como coach, Carlos disfruta asesorando a jóvenes
+            profesionales y explorando las rutas de senderismo de la Patagonia.
           </p>
           <p>
             <strong>Misión:</strong> Liberar el potencial de cada cliente
@@ -182,18 +212,18 @@ function App() {
         </form>
       </section>
       <footer className="bg-blue-700 text-white p-4 text-center">
-      <p className="text-sm">
-        &copy; 2025 Carlos López Coaching. Desarrollado por {' '}
-        <a
-          href="https://ngpalma.github.io/portfolio/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="underline hover:text-gray-200"
-        >
-          Nicolás Palma
-        </a>
-      </p>
-    </footer>
+        <p className="text-sm">
+          &copy; 2025 Carlos López Coaching. Desarrollado por{" "}
+          <a
+            href="https://ngpalma.github.io/portfolio/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline hover:text-gray-200"
+          >
+            Nicolás Palma
+          </a>
+        </p>
+      </footer>
     </div>
   );
 }
