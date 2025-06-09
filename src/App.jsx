@@ -9,23 +9,47 @@ function App() {
     message: "",
   });
 
+  const [errors, setErrors] = useState({});
+  const [alert, setAlert] = useState(null);
+
+  const validateForm = () => {
+    const newErrors = {};
+    if (!formData.name.trim()) newErrors.name = "El nombre es requerido";
+    if (!formData.email.trim()) {
+      newErrors.email = "El correo es requerido";
+    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      newErrors.email = "El correo no es válido";
+    }
+    if (!formData.message.trim()) newErrors.message = "El mensaje es requerido";
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
   const handleSubmit = useCallback(
     async (e) => {
       e.preventDefault();
-      try {
-        const response = await axios.post(
-          "https://landing-pro-backend.onrender.com/contact",
-          formData
-        );
-        alert(response.data.message);
-        setFormData({ name: "", email: "", message: "" });
-      } catch (error) {
-        console.error("Submission error:", {
-          message: error.message,
-          code: error.code,
-          response: error.response ? error.response.data : null,
-        });
-        alert(`Error enviando mensaje: ${error.message}`);
+      if (validateForm()) {
+        try {
+          const response = await axios.post(
+            "https://landing-pro-backend.onrender.com/contact",
+            formData
+          );
+          setAlert({ type: "success", message: response.data.message });
+          setFormData({ name: "", email: "", message: "" });
+          setErrors({});
+          setTimeout(() => setAlert(null), 5000);
+        } catch (error) {
+          console.error("Submission error:", {
+            message: error.message,
+            code: error.code,
+            response: error.response ? error.response.data : null,
+          });
+          setAlert({
+            type: "error",
+            message: `Error al enviar el mensaje. Intenta de nuevo. ${error.message}`,
+          });
+          setTimeout(() => setAlert(null), 5000);
+        }
       }
     },
     [formData]
@@ -68,7 +92,7 @@ function App() {
           content="Demostración de portafolio profesional por Nicolás Palma"
         />
       </Helmet>
-      <nav className="bg-blue-500 text-white p-4 sticky top-0">
+      <nav className="bg-blue-700 text-white p-4 sticky top-0">
         <div className="container mx-auto flex justify-between items-center">
           <button
             onClick={() => scrollToSection("hero")}
@@ -100,7 +124,7 @@ function App() {
       </nav>
       <section
         id="hero"
-        className="bg-blue-700 text-white p-10 flex flex-col md:flex-row items-center"
+        className="bg-blue-500 text-white p-10 flex flex-col md:flex-row items-center"
       >
         <div className="md:w-1/2 text-center md:text-left">
           <h1 className="text-4xl font-bold">Carlos López - Career Coach</h1>
@@ -157,7 +181,7 @@ function App() {
           </p>
         </div>
       </section>
-      <section id="services" className="p-10 bg-blue-700">
+      <section id="services" className="p-10 bg-blue-500">
         <h2 className="text-3xl font-bold text-center text-white">Servicios</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6 max-w-6xl mx-auto">
           {services.map((service, index) => (
@@ -177,41 +201,73 @@ function App() {
         </div>
       </section>
       <section id="contact" className="p-10 bg-gray-100">
+        {alert && (
+          <div
+            className={`fixed top-4 right-4 p-4 rounded-lg shadow-lg text-white ${
+              alert.type === "success" ? "bg-green-500" : "bg-red-500"
+            } transition-opacity duration-300`}
+          >
+            {alert.message}
+          </div>
+        )}
         <h2 className="text-3xl font-bold text-center">Contáctame</h2>
         <form onSubmit={handleSubmit} className="max-w-md mx-auto mt-6">
-          <input
-            type="text"
-            placeholder="Nombre"
-            className="w-full p-3 mb-4 border rounded"
-            value={formData.name}
-            onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-          />
-          <input
-            type="email"
-            placeholder="Email"
-            className="w-full p-3 mb-4 border rounded"
-            value={formData.email}
-            onChange={(e) =>
-              setFormData({ ...formData, email: e.target.value })
-            }
-          />
-          <textarea
-            placeholder="Mensaje"
-            className="w-full p-3 mb-4 border rounded"
-            value={formData.message}
-            onChange={(e) =>
-              setFormData({ ...formData, message: e.target.value })
-            }
-          ></textarea>
+          <div className="mb-4">
+            <input
+              type="text"
+              placeholder="Nombre"
+              className={`w-full p-3 border rounded ${
+                errors.name ? "border-red-500" : "border-gray-300"
+              }`}
+              value={formData.name}
+              onChange={(e) =>
+                setFormData({ ...formData, name: e.target.value })
+              }
+            />
+            {errors.name && (
+              <p className="text-red-500 text-sm mt-1">{errors.name}</p>
+            )}
+          </div>
+          <div className="mb-4">
+            <input
+              type="email"
+              placeholder="Correo Electrónico"
+              className={`w-full p-3 border rounded ${
+                errors.email ? "border-red-500" : "border-gray-300"
+              }`}
+              value={formData.email}
+              onChange={(e) =>
+                setFormData({ ...formData, email: e.target.value })
+              }
+            />
+            {errors.email && (
+              <p className="text-red-500 text-sm mt-1">{errors.email}</p>
+            )}
+          </div>
+          <div className="mb-4">
+            <textarea
+              placeholder="Mensaje"
+              className={`w-full p-3 border rounded ${
+                errors.message ? "border-red-500" : "border-gray-300"
+              }`}
+              value={formData.message}
+              onChange={(e) =>
+                setFormData({ ...formData, message: e.target.value })
+              }
+            ></textarea>
+            {errors.message && (
+              <p className="text-red-500 text-sm">{errors.message}</p>
+            )}
+          </div>
           <button
             type="submit"
-            className="bg-blue-800 text-white px-6 py-2 rounded w-full hover:bg-blue-500 hover:text-black transition duration-300"
+            className="bg-blue-700 text-white px-6 py-2 rounded w-full hover:bg-blue-500 hover:text-black transition duration-300"
           >
             Enviar Mensaje
           </button>
         </form>
       </section>
-      <footer className="bg-blue-500 text-white p-4 text-center">
+      <footer className="bg-blue-700 text-white p-4 text-center">
         <p className="text-sm">
           &copy; {new Date().getFullYear()} Carlos López Coaching. Desarrollado
           por{" "}

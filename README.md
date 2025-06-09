@@ -3,8 +3,11 @@ Un sitio web de una sola página para profesionales, creado con React y Tailwind
 
 ## Características
 - Diseño responsivo
-- Formulario de contacto con backend Node.js
+- Formulario de contacto con backend Node.js con validación y alertas estilizadas
 - SEO básico con metaetiquetas
+- Servicios mejorados con imágenes
+- Sección About detallada
+- Hero con imagen profesional y CTA funcional
 
 ## Stack Técnico
 - Frontend: React, Tailwind CSS, Vite
