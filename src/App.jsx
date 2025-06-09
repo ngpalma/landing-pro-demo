@@ -96,7 +96,7 @@ function App() {
         <div className="container mx-auto flex justify-between items-center">
           <button
             onClick={() => scrollToSection("hero")}
-            className="hover:underline text-xl font-bold"
+            className="text-xl font-bold"
           >
             Carlos López Coaching
           </button>
@@ -133,7 +133,7 @@ function App() {
           </p>
           <button
             onClick={() => scrollToSection("services")}
-            className="mt-4 bg-white text-blue-600 px-6 py-2 rounded hover:bg-gray-300"
+            className="mt-4 bg-white text-blue-700 px-6 py-2 rounded border border-blue-600 hover:bg-gray-100"
           >
             Más información
           </button>
@@ -146,78 +146,95 @@ function App() {
           />
         </div>
       </section>
-      <section id="about" className="p-10 bg-gray-100">
-        <h2 className="text-3xl font-bold text-center">Sobre Carlos López</h2>
-        <div className="max-w-4xl mx-auto mt-6 text-center">
-          <p className="mb-4">
-            Carlos López es un coach de carrera experimentado con más de 15 años
-            de experiencia en recursos humanos y desarrollo profesional. Con una
-            Maestría en Psicología Organizacional de la Universidad de Buenos
-            Aires, Carlos ha ayudado a cientos de profesionales en Argentina y
-            Latinoamérica a alcanzar sus aspiraciones profesionales.
-          </p>
-          <p className="mb-4">
-            Antes de fundar su consultora de coaching, Carlos ocupó altos cargos
-            de RR. HH. en corporaciones multinacionales, donde diseñó programas
-            de liderazgo y guió a empleados en sus transiciones profesionales.
-            Su enfoque combina estrategias basadas en la evidencia, mentoría
-            personalizada y un profundo conocimiento del mercado laboral actual,
-            ayudando a los clientes a afrontar ascensos, cambios de carrera o
-            emprendimientos.
-          </p>
-          <p className="mb-4">
-            Como coach certificado por la ICF (Federación Internacional de
-            Coaching), Carlos se compromete a fomentar la confianza y la
-            claridad en sus clientes. Participa frecuentemente como orador en
-            talleres de desarrollo profesional en Buenos Aires y ha publicado
-            artículos en La Nación sobre tendencias laborales. Además de su
-            faceta como coach, Carlos disfruta asesorando a jóvenes
-            profesionales y explorando las rutas de senderismo de la Patagonia.
-          </p>
-          <p>
-            <strong>Misión:</strong> Liberar el potencial de cada cliente
-            mediante asesoramiento personalizado, estrategias prácticas y un
-            apoyo incondicional.
-          </p>
+      <section id="about" className="p-10 sm:p-10 bg-gray-100">
+        <h2 className="text-3xl font-bold text-center text-blue-700">
+          Sobre Carlos López
+        </h2>
+        <div className="max-w-4xl mx-auto mt-6">
+          <img
+            src="https://images.unsplash.com/photo-1537511446984-935f663eb1f4?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzN8fHByb2Zlc3Npb25hbHxlbnwwfHwwfHx8MA%3D%3D"
+            alt="Juan Pérez"
+            className="mx-auto mb-4 rounded-full h-32 w-32 object-cover"
+          />
+          <div className="max-w-4xl mx-auto mt-6 text-center text-gray-900 bg-blue-50 p-6 rounded-lg shadow-sm">
+            <p className="mb-4">
+              Carlos López es un coach de carrera experimentado con más de 15
+              años de experiencia en recursos humanos y desarrollo profesional.
+              Con una Maestría en Psicología Organizacional de la Universidad de
+              Buenos Aires, Carlos ha ayudado a cientos de profesionales en
+              Argentina y Latinoamérica a alcanzar sus aspiraciones
+              profesionales.
+            </p>
+            <p className="mb-4">
+              Antes de fundar su consultora de coaching, Carlos ocupó altos
+              cargos de RR. HH. en corporaciones multinacionales, donde diseñó
+              programas de liderazgo y guió a empleados en sus transiciones
+              profesionales. Su enfoque combina estrategias basadas en la
+              evidencia, mentoría personalizada y un profundo conocimiento del
+              mercado laboral actual, ayudando a los clientes a afrontar
+              ascensos, cambios de carrera o emprendimientos.
+            </p>
+            <p className="mb-4">
+              Como coach certificado por la ICF (Federación Internacional de
+              Coaching), Carlos se compromete a fomentar la confianza y la
+              claridad en sus clientes. Participa frecuentemente como orador en
+              talleres de desarrollo profesional en Buenos Aires y ha publicado
+              artículos en La Nación sobre tendencias laborales. Además de su
+              faceta como coach, Carlos disfruta asesorando a jóvenes
+              profesionales y explorando las rutas de senderismo de la
+              Patagonia.
+            </p>
+            <p>
+              <strong>Misión:</strong> Liberar el potencial de cada cliente
+              mediante asesoramiento personalizado, estrategias prácticas y un
+              apoyo incondicional.
+            </p>
+          </div>
         </div>
       </section>
-      <section id="services" className="p-10 bg-blue-500">
-        <h2 className="text-3xl font-bold text-center text-white">Servicios</h2>
+      <section id="services" className="p-10 bg-white">
+        <h2 className="text-3xl font-bold text-center text-blue-700">
+          Servicios
+        </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6 max-w-6xl mx-auto">
           {services.map((service, index) => (
             <div
               key={index}
-              className="bg-gray-100 p-6 rounded-lg shadow-lg text-center"
+              className="bg-gray-100 p-6 rounded-lg shadow-lg text-center border border-blue-500"
             >
               <img
                 src={service.image}
                 alt={service.title}
                 className="h-40 w-full object-cover rounded mb-4"
               />
-              <h3 className="text-xl font-bold">{service.title}</h3>
-              <p className="mt-2">{service.description}</p>
+              <h3 className="text-xl font-bold text-blue-700">
+                {service.title}
+              </h3>
+              <p className="mt-2 text-gray-600">{service.description}</p>
             </div>
           ))}
         </div>
       </section>
-      <section id="contact" className="p-10 bg-gray-100">
+      <section id="contact" className="p-6 sm:p-10 bg-gray-100">
         {alert && (
           <div
             className={`fixed top-4 right-4 p-4 rounded-lg shadow-lg text-white ${
-              alert.type === "success" ? "bg-green-500" : "bg-red-500"
+              alert.type === "success" ? "bg-blue-500" : "bg-red-500"
             } transition-opacity duration-300`}
           >
             {alert.message}
           </div>
         )}
-        <h2 className="text-3xl font-bold text-center">Contáctame</h2>
-        <form onSubmit={handleSubmit} className="max-w-md mx-auto mt-6">
+        <h2 className="text-3xl font-bold text-center text-blue-700">
+          Contáctame
+        </h2>
+        <form onSubmit={handleSubmit} className="max-w-md mx-auto mt-6 space-y-4">
           <div className="mb-4">
             <input
               type="text"
               placeholder="Nombre"
               className={`w-full p-3 border rounded ${
-                errors.name ? "border-red-500" : "border-gray-300"
+                errors.name ? "border-red-500" : "border-blue-500"
               }`}
               value={formData.name}
               onChange={(e) =>
@@ -233,7 +250,7 @@ function App() {
               type="email"
               placeholder="Correo Electrónico"
               className={`w-full p-3 border rounded ${
-                errors.email ? "border-red-500" : "border-gray-300"
+                errors.email ? "border-red-500" : "border-blue-500"
               }`}
               value={formData.email}
               onChange={(e) =>
@@ -248,7 +265,7 @@ function App() {
             <textarea
               placeholder="Mensaje"
               className={`w-full p-3 border rounded ${
-                errors.message ? "border-red-500" : "border-gray-300"
+                errors.message ? "border-red-500" : "border-blue-500"
               }`}
               value={formData.message}
               onChange={(e) =>
@@ -261,7 +278,7 @@ function App() {
           </div>
           <button
             type="submit"
-            className="bg-blue-700 text-white px-6 py-2 rounded w-full hover:bg-blue-500 hover:text-black transition duration-300"
+            className="bg-blue-700 text-white px-6 py-2 rounded w-full hover:bg-blue-500 transition duration-300"
           >
             Enviar Mensaje
           </button>
